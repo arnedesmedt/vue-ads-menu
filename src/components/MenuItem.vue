@@ -11,7 +11,7 @@
                 :href="item.url"
                 :title="title"
                 :class="linkClasses"
-                class="block px-6 py-4 flex no-underline text-black"
+                class="block px-6 py-4 flex no-underline"
             >
                 <div v-if="item.icon">
                     <slot
@@ -75,11 +75,14 @@ export default {
         linkClasses () {
             let classes = {};
 
-            classes['bg-blue-dark'] = this.hover;
-
             if (this.linkClass) {
                 this.linkClass.split(' ').forEach(className => {
-                    classes[className] = true;
+                    let addClass = true;
+                    if (className.includes('hover:')) {
+                        className = className.replace(/hover:/, '');
+                        addClass = this.hover;
+                    }
+                    classes[className] = addClass;
                 });
             }
 
@@ -110,7 +113,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-
-</style>

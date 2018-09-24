@@ -5,9 +5,9 @@
                 slot="toolbar"
                 class="bg-red"
             >
-                <vue-ads-menu-button 
-                    slot="first" 
-                    :hidden="hiddenLeft" 
+                <vue-ads-menu-button
+                    slot="first"
+                    :hidden="hiddenLeft"
                     @toggle="hideLeft"/>
             </vue-ads-bar>
             <vue-ads-drawer
@@ -27,7 +27,7 @@
                         v-for="(item, key) in items"
                         :key="key"
                         :item="item"
-                        :link-class="'font-bold'"
+                        :link-class="'font-bold hover:bg-blue-dark'"
                     >
                         <vue-ads-menu
                             v-if="item.subitems"
@@ -43,7 +43,6 @@
                                 <vue-ads-menu
                                     v-if="subitem.subitems"
                                     :submenu="true"
-                                    :minified="true"
                                     class="bg-blue"
                                 >
                                     <vue-ads-menu-item
@@ -62,7 +61,8 @@
 </template>
 
 <script>
-import './assets/css/packages.css';
+import './assets/css/tailwind.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import '../node_modules/vue-ads-layout/dist/vue-ads-layout.css';
 
 import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenuButton } from 'vue-ads-layout';
