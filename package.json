@@ -29,19 +29,14 @@
     "postcss-import": "*",
     "postcss-url": "*",
     "tailwindcss": "*",
-    "vue-ads-layout": "^1.2.0",
+    "vue-ads-layout": "^1.2.2",
     "vue-cli-plugin-ads-package-json": "latest",
     "vue-cli-plugin-ads-packages": "latest",
     "vue-cli-plugin-ads-readme": "latest",
     "vue-template-compiler": "^2.5.17"
   },
   "description": "This is a vue component that provides a menu with submenu's",
-  "keywords": [
-    "vue",
-    "component",
-    "menu",
-    "submenu"
-  ],
+  "main": "./dist/vue-ads-menu.common.js",
   "files": [
     "/dist"
   ],
@@ -55,5 +50,10 @@
   "homepage": "https://github.com/arnedesmedt/vue-ads-menu",
   "author": "Arne De Smedt <arnedesmdt@gmail.com> (https://twitter.com/ArneSmedt)",
   "license": "MIT",
-  "main": "./dist/vue-ads-menu.common.js"
+  "keywords": [
+    "vue",
+    "component",
+    "menu",
+    "submenu"
+  ]
 }
