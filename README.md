@@ -82,8 +82,10 @@ Drawer as a container for the VueAdsMenu.
 </template>
 
 <script>
-import '../node_modules/vue-ads-layout/dist/vue-ads-layout.css';
-import '../node_modules/vue-ads-layout/dist/vue-ads-menu.css';
+import './node_modules/vue-ads-layout/dist/vue-ads-layout.css';
+import './node_modules/vue-ads-layout/dist/vue-ads-menu.css';
+import './node_modules/@fortawesome/fontawesome-free/css/all.css';
+
 
 import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenuButton } from 'vue-ads-layout';
 import { VueAdsMenu, VueAdsMenuItem } from 'vue-ads-menu';
@@ -187,6 +189,7 @@ Place the VueAdsMenuItem components in the default template.
     - `name`: *(type: string)* The menu item title.
     - `url`: *(type: string)* The url where the menu item links to.
     - `icon`: *(type: string)* The font-awesome class without the prefix `fa-`.
+    Be sure to import the font awesome library. It's a dependency of this library, so you don't need to install it anymore.
     - `subitems`: *(type: array)* An array of item objects to provide a submenu.
     
 ##### Templates
