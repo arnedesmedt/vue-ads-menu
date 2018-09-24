@@ -4,26 +4,32 @@
         @mouseover="over"
         @mouseout="out"
     >
-        <slot name="link" :item="item">
+        <slot
+            :item="item"
+            name="link">
             <a
                 :href="item.url"
-                class="block px-6 py-4 flex no-underline text-black"
                 :title="title"
                 :class="linkClasses"
+                class="block px-6 py-4 flex no-underline text-black"
             >
                 <div v-if="item.icon">
-                    <slot name="link-icon" :item="item">
+                    <slot
+                        :item="item"
+                        name="link-icon">
                         <i
-                            class="fa"
                             :class="iconClasses"
-                        ></i>
+                            class="fa"
+                        />
                     </slot>
                 </div>
                 <div
                     v-if="item.name && !$parent.minified"
                     class="flex-grow ml-2"
                 >
-                    <slot name="link-name" :item="item">
+                    <slot
+                        :item="item"
+                        name="link-name">
                         {{ item.name }}
                     </slot>
                 </div>
@@ -33,14 +39,12 @@
                     <slot name="link-end">
                         <i
                             class="fa fa-chevron-right"
-                        ></i>
+                        />
                     </slot>
                 </div>
             </a>
         </slot>
-        <slot v-if="hover">
-
-        </slot>
+        <slot v-if="hover"/>
     </li>
 </template>
 
@@ -57,6 +61,7 @@ export default {
         linkClass: {
             type: String,
             required: false,
+            default: '',
         },
     },
 

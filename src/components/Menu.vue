@@ -1,11 +1,9 @@
 <template>
     <ul
-        class="list-reset transition"
         :class="menuClasses"
+        class="list-reset transition"
     >
-        <slot>
-
-        </slot>
+        <slot/>
     </ul>
 </template>
 
@@ -52,7 +50,7 @@ export default {
             }
 
             return this.$parent.$parent.width;
-        }
+        },
     },
 };
 </script>
