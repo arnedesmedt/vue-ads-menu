@@ -10,7 +10,7 @@
             <a
                 :href="item.url"
                 :class="linkClasses"
-                class="block px-6 py-4 flex no-underline"
+                class="block flex"
             >
                 <div v-if="item.icon">
                     <slot
