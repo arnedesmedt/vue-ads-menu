@@ -9,7 +9,6 @@
             name="link">
             <a
                 :href="item.url"
-                :title="title"
                 :class="linkClasses"
                 class="block px-6 py-4 flex no-underline"
             >
@@ -95,10 +94,6 @@ export default {
             classes['fa-' + this.item.icon] = Boolean(this.item.icon);
 
             return classes;
-        },
-
-        title () {
-            return this.$parent.minified ? this.item.name : '';
         },
 
         parent () {
