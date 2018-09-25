@@ -24,8 +24,8 @@
                     </slot>
                 </div>
                 <div
-                    v-if="item.name && !$parent.minified"
                     class="flex-grow ml-2"
+                    v-if="item.name && !parent.minified"
                 >
                     <slot
                         :item="item"
@@ -34,7 +34,7 @@
                     </slot>
                 </div>
                 <div
-                    v-if="item.subitems && !$parent.minified"
+                    v-if="item.subitems && !parent.minified"
                 >
                     <slot name="link-end">
                         <i
@@ -100,6 +100,16 @@ export default {
         title () {
             return this.$parent.minified ? this.item.name : '';
         },
+
+        parent () {
+            let parent = this.$parent;
+
+            while(parent.$options.name !== 'VueAdsMenu' && parent.$parent !== undefined) {
+                parent = parent.$parent;
+            }
+
+            return parent;
+        }
     },
 
     methods: {

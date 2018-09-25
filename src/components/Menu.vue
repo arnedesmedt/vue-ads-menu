@@ -49,8 +49,18 @@ export default {
                 return 0;
             }
 
-            return this.$parent.$parent.width;
+            return this.parent.width;
         },
+
+        parent () {
+            let parent = this.$parent;
+
+            while(parent.$options.name !== 'VueAdsMenu' && parent.$parent !== undefined) {
+                parent = parent.$parent;
+            }
+
+            return parent;
+        }
     },
 };
 </script>
