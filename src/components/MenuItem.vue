@@ -23,12 +23,14 @@
                     </slot>
                 </div>
                 <div
-                    class="flex-grow ml-2"
+                    class="flex-grow"
+                    :class="nameClasses"
                     v-if="item.name && !parent.minified"
                 >
                     <slot
                         :item="item"
-                        name="link-name">
+                        name="link-name"
+                    >
                         {{ item.name }}
                     </slot>
                 </div>
@@ -94,6 +96,12 @@ export default {
             classes['fa-' + this.item.icon] = Boolean(this.item.icon);
 
             return classes;
+        },
+
+        nameClasses () {
+            return {
+                'ml-2': Boolean(this.item.icon),
+            };
         },
 
         parent () {
