@@ -27,7 +27,7 @@
                         v-for="(item, key) in items"
                         :key="key"
                         :item="item"
-                        :link-class="'font-bold hover:bg-blue-dark'"
+                        link-class="font-bold hover:bg-blue-dark"
                     >
                         <vue-ads-menu
                             v-if="item.subitems"
