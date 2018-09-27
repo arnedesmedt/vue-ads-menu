@@ -23,9 +23,9 @@
                     </slot>
                 </div>
                 <div
-                    class="flex-grow"
-                    :class="nameClasses"
                     v-if="item.name && !parent.minified"
+                    :class="nameClasses"
+                    class="flex-grow"
                 >
                     <slot
                         :item="item"
@@ -112,7 +112,7 @@ export default {
             }
 
             return parent;
-        }
+        },
     },
 
     methods: {
