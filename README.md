@@ -27,7 +27,7 @@ Drawer as a container for the VueAdsMenu.
                 slot="toolbar"
                 class="bg-red"
             >
-                <vue-ads-menu-button slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu-button>
+                <vue-ads-hide-button slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-hide-button>
             </vue-ads-bar>
             <vue-ads-drawer
                 slot="left-drawer"
@@ -82,12 +82,12 @@ Drawer as a container for the VueAdsMenu.
 </template>
 
 <script>
-import './node_modules/vue-ads-layout/dist/vue-ads-layout.css';
-import './node_modules/vue-ads-layout/dist/vue-ads-menu.css';
-import './node_modules/@fortawesome/fontawesome-free/css/all.css';
+import '../node_modules/vue-ads-layout/dist/vue-ads-layout.css';
+import '../node_modules/vue-ads-layout/dist/vue-ads-menu.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 
-import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenuButton } from 'vue-ads-layout';
+import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsHideButton } from 'vue-ads-layout';
 import { VueAdsMenu, VueAdsMenuItem } from 'vue-ads-menu';
 
 export default {
@@ -97,7 +97,7 @@ export default {
         VueAdsLayout,
         VueAdsBar,
         VueAdsDrawer,
-        VueAdsMenuButton,
+        VueAdsHideButton,
         VueAdsMenu,
         VueAdsMenuItem,
     },
