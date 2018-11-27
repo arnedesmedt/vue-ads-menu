@@ -5,7 +5,7 @@
                 slot="toolbar"
                 class="bg-red"
             >
-                <vue-ads-menu-button
+                <vue-ads-hide-button
                     slot="first"
                     :hidden="hiddenLeft"
                     @toggle="hideLeft"/>
@@ -65,7 +65,7 @@ import './assets/css/tailwind.css';
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import '../node_modules/vue-ads-layout/dist/vue-ads-layout.css';
 
-import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenuButton } from 'vue-ads-layout';
+import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsHideButton } from 'vue-ads-layout';
 import VueAdsMenu from './components/Menu';
 import VueAdsMenuItem from './components/MenuItem';
 
@@ -76,7 +76,7 @@ export default {
         VueAdsLayout,
         VueAdsBar,
         VueAdsDrawer,
-        VueAdsMenuButton,
+        VueAdsHideButton,
         VueAdsMenu,
         VueAdsMenuItem,
     },
