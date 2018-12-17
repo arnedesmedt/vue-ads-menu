@@ -1,15 +1,15 @@
 <template>
     <ul
-        class="list-reset transition"
         :class="menuClasses"
+        class="vue-ads-list-reset vue-ads-menu-transition"
     >
-        <slot>
-
-        </slot>
+        <slot/>
     </ul>
 </template>
 
 <script>
+import '../assets/css/tailwind.css';
+
 export default {
     name: 'VueAdsMenu',
 
@@ -36,12 +36,12 @@ export default {
     computed: {
         menuClasses () {
             let classes = {
-                absolute: this.submenu,
-                'pin-t': this.submenu,
+                'vue-ads-absolute': this.submenu,
+                'vue-ads-pin-t': this.submenu,
             };
 
-            classes['ml-' + this.parentWidth] = true;
-            classes['w-' + this.width] = true;
+            classes['vue-ads-ml-' + this.parentWidth] = true;
+            classes['vue-ads-w-' + this.width] = true;
 
             return classes;
         },
@@ -51,14 +51,24 @@ export default {
                 return 0;
             }
 
-            return this.$parent.$parent.width;
-        }
+            return this.parent.width;
+        },
+
+        parent () {
+            let parent = this.$parent;
+
+            while(parent.$options.name !== 'VueAdsMenu' && parent.$parent !== undefined) {
+                parent = parent.$parent;
+            }
+
+            return parent;
+        },
     },
 };
 </script>
 
 <style scoped>
-.transition {
+.vue-ads-menu-transition {
     transition: width 0.2s;
     -webkit-transition: width 0.2s;
     -moz-transition: width 0.2s;

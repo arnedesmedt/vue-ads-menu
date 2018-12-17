@@ -5,15 +5,18 @@
                 slot="toolbar"
                 class="bg-red"
             >
-                <vue-ads-menu-button slot="first" :hidden="hiddenLeft" @toggle="hideLeft"></vue-ads-menu-button>
+                <vue-ads-hide-button
+                    slot="first"
+                    :hidden="hiddenLeft"
+                    @toggle="hideLeft"/>
             </vue-ads-bar>
             <vue-ads-drawer
                 slot="left-drawer"
                 :minified="minifiedLeft"
                 :hidden="hiddenLeft"
+                class="bg-blue"
                 @minify="minifyLeft"
                 @hide="hideLeft"
-                class="bg-blue"
             >
                 <vue-ads-menu
                     slot-scope="props"
@@ -24,7 +27,7 @@
                         v-for="(item, key) in items"
                         :key="key"
                         :item="item"
-                        :link-class="'font-bold'"
+                        link-class="font-bold hover:bg-blue-dark"
                     >
                         <vue-ads-menu
                             v-if="item.subitems"
@@ -41,15 +44,12 @@
                                     v-if="subitem.subitems"
                                     :submenu="true"
                                     class="bg-blue"
-                                    :minified="true"
                                 >
                                     <vue-ads-menu-item
                                         v-for="(subsubitem, subsubitemKey) in subitem.subitems"
                                         :key="subsubitemKey"
                                         :item="subsubitem"
-                                    >
-
-                                    </vue-ads-menu-item>
+                                    />
                                 </vue-ads-menu>
                             </vue-ads-menu-item>
                         </vue-ads-menu>
@@ -61,21 +61,21 @@
 </template>
 
 <script>
-import './assets/css/packages.css';
-import '../node_modules/vue-ads-layout/dist/vue-ads-layout.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+// import '../node_modules/vue-ads-layout/dist/vue-ads-layout.css';
 
-import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsMenuButton } from 'vue-ads-layout';
+import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsHideButton } from 'vue-ads-layout';
 import VueAdsMenu from './components/Menu';
 import VueAdsMenuItem from './components/MenuItem';
 
 export default {
-    name: 'app',
+    name: 'App',
 
     components: {
         VueAdsLayout,
         VueAdsBar,
         VueAdsDrawer,
-        VueAdsMenuButton,
+        VueAdsHideButton,
         VueAdsMenu,
         VueAdsMenuItem,
     },

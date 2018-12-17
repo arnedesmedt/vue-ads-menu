@@ -1,46 +1,51 @@
 <template>
     <li
-        class="relative"
-        @mouseover="over"
-        @mouseout="out"
+        class="vue-ads-relative"
+        @mouseover.prevent="over"
+        @mouseout.prevent="out"
     >
-        <slot name="link" :item="item">
+        <slot
+            :item="item"
+            name="link">
             <a
                 :href="item.url"
-                class="block px-6 py-4 flex no-underline text-black"
-                :title="title"
                 :class="linkClasses"
+                class="vue-ads-block vue-ads-flex"
             >
                 <div v-if="item.icon">
-                    <slot name="link-icon" :item="item">
+                    <slot
+                        :item="item"
+                        name="link-icon">
                         <i
-                            class="fa"
                             :class="iconClasses"
-                        ></i>
+                            class="fa"
+                        />
                     </slot>
                 </div>
                 <div
-                    v-if="item.name && !$parent.minified"
-                    class="flex-grow ml-2"
+                    v-if="item.name && !parent.minified"
+                    :class="nameClasses"
+                    class="vue-ads-flex-grow"
                 >
-                    <slot name="link-name" :item="item">
+                    <slot
+                        :item="item"
+                        name="link-name"
+                    >
                         {{ item.name }}
                     </slot>
                 </div>
                 <div
-                    v-if="item.subitems && !$parent.minified"
+                    v-if="item.subitems && !parent.minified"
                 >
                     <slot name="link-end">
                         <i
                             class="fa fa-chevron-right"
-                        ></i>
+                        />
                     </slot>
                 </div>
             </a>
         </slot>
-        <slot v-if="hover">
-
-        </slot>
+        <slot v-if="hover"/>
     </li>
 </template>
 
@@ -57,6 +62,7 @@ export default {
         linkClass: {
             type: String,
             required: false,
+            default: '',
         },
     },
 
@@ -70,11 +76,14 @@ export default {
         linkClasses () {
             let classes = {};
 
-            classes['bg-blue-dark'] = this.hover;
-
             if (this.linkClass) {
                 this.linkClass.split(' ').forEach(className => {
-                    classes[className] = true;
+                    let addClass = true;
+                    if (className.includes('hover:')) {
+                        className = className.replace(/hover:/, '');
+                        addClass = this.hover;
+                    }
+                    classes[className] = addClass;
                 });
             }
 
@@ -89,8 +98,20 @@ export default {
             return classes;
         },
 
-        title () {
-            return this.$parent.minified ? this.item.name : '';
+        nameClasses () {
+            return {
+                'vue-ads-ml-2': Boolean(this.item.icon),
+            };
+        },
+
+        parent () {
+            let parent = this.$parent;
+
+            while(parent.$options.name !== 'VueAdsMenu' && parent.$parent !== undefined) {
+                parent = parent.$parent;
+            }
+
+            return parent;
         },
     },
 
@@ -105,7 +126,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-
-</style>
