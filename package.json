@@ -1,6 +1,6 @@
 {
   "name": "vue-ads-menu",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "main": "./dist/vue-ads-menu.common.js",
   "description": "This is a vue component that provides a menu with submenu's",
