@@ -1,8 +1,8 @@
 <template>
     <li
-        class="relative"
-        @mouseover="over"
-        @mouseout="out"
+        class="vue-ads-relative"
+        @mouseover.prevent="over"
+        @mouseout.prevent="out"
     >
         <slot
             :item="item"
@@ -10,7 +10,7 @@
             <a
                 :href="item.url"
                 :class="linkClasses"
-                class="block flex"
+                class="vue-ads-block vue-ads-flex"
             >
                 <div v-if="item.icon">
                     <slot
@@ -25,7 +25,7 @@
                 <div
                     v-if="item.name && !parent.minified"
                     :class="nameClasses"
-                    class="flex-grow"
+                    class="vue-ads-flex-grow"
                 >
                     <slot
                         :item="item"
@@ -100,7 +100,7 @@ export default {
 
         nameClasses () {
             return {
-                'ml-2': Boolean(this.item.icon),
+                'vue-ads-ml-2': Boolean(this.item.icon),
             };
         },
 

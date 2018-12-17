@@ -62,7 +62,7 @@
 
 <script>
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import '../node_modules/vue-ads-layout/dist/vue-ads-layout.css';
+// import '../node_modules/vue-ads-layout/dist/vue-ads-layout.css';
 
 import { VueAdsLayout, VueAdsBar, VueAdsDrawer, VueAdsHideButton } from 'vue-ads-layout';
 import VueAdsMenu from './components/Menu';

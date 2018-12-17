@@ -1,7 +1,7 @@
 <template>
     <ul
         :class="menuClasses"
-        class="list-reset transition"
+        class="vue-ads-list-reset vue-ads-menu-transition"
     >
         <slot/>
     </ul>
@@ -36,12 +36,12 @@ export default {
     computed: {
         menuClasses () {
             let classes = {
-                absolute: this.submenu,
-                'pin-t': this.submenu,
+                'vue-ads-absolute': this.submenu,
+                'vue-ads-pin-t': this.submenu,
             };
 
-            classes['ml-' + this.parentWidth] = true;
-            classes['w-' + this.width] = true;
+            classes['vue-ads-ml-' + this.parentWidth] = true;
+            classes['vue-ads-w-' + this.width] = true;
 
             return classes;
         },
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style scoped>
-.transition {
+.vue-ads-menu-transition {
     transition: width 0.2s;
     -webkit-transition: width 0.2s;
     -moz-transition: width 0.2s;
