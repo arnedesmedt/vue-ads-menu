@@ -29,7 +29,7 @@ export default {
     },
 
     render (createElement) {
-        let result = createElement(
+        return createElement(
             this.tag,
             {
                 class: 'vue-ads-block vue-ads-flex',
@@ -39,10 +39,6 @@ export default {
             },
             this.$slots.default,
         );
-
-        console.log(result);
-
-        return result;
     },
 };
 </script>
