@@ -33,7 +33,9 @@ export default {
             this.tag,
             {
                 class: 'vue-ads-block vue-ads-flex',
-                [this.urlAttribute]: this.url,
+                attrs: {
+                    [this.urlAttribute]: this.url,
+                },
             },
             this.$slots.default,
         );
