@@ -17,13 +17,23 @@ export default {
         },
     },
 
+    computed: {
+        urlAttribute () {
+            switch (this.tag) {
+            case 'a':
+                return 'href';
+            case 'nuxt-link': case 'router-link':
+                return 'to';
+            }
+        },
+    },
+
     render (createElement) {
-        console.log(this.$slots);
         return createElement(
             this.tag,
             {
                 class: 'vue-ads-block vue-ads-flex',
-                [this.nuxtLink ? 'to' : 'href']: this.url,
+                [this.urlAttribute]: this.url,
             },
             this.$slots.default,
         );

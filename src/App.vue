@@ -164,6 +164,7 @@ export default {
                     name: 'Calendar',
                     icon: 'calendar',
                     url: '#',
+                    tag: 'nuxt-link',
                 },
             ],
 
