@@ -29,14 +29,20 @@ export default {
     },
 
     render (createElement) {
-        return createElement(
+        let result = createElement(
             this.tag,
             {
                 class: 'vue-ads-block vue-ads-flex',
-                [this.urlAttribute]: this.url,
+                attrs: {
+                    [this.urlAttribute]: this.url,
+                },
             },
             this.$slots.default,
         );
+
+        console.log(result);
+
+        return result;
     },
 };
 </script>
