@@ -6,16 +6,18 @@
     >
         <slot
             :item="item"
-            name="link">
-            <a
-                :href="item.url"
+            name="link"
+        >
+            <vue-ads-menu-link
                 :class="linkClasses"
-                class="vue-ads-block vue-ads-flex"
+                :url="item.url"
+                :tag="item.tag"
             >
                 <div v-if="item.icon">
                     <slot
                         :item="item"
-                        name="link-icon">
+                        name="link-icon"
+                    >
                         <i
                             :class="iconClasses"
                             class="fa"
@@ -43,15 +45,21 @@
                         />
                     </slot>
                 </div>
-            </a>
+            </vue-ads-menu-link>
         </slot>
         <slot v-if="hover"/>
     </li>
 </template>
 
 <script>
+import VueAdsMenuLink from './MenuLink';
+
 export default {
     name: 'VueAdsMenuItem',
+
+    components: {
+        VueAdsMenuLink,
+    },
 
     props: {
         item: {

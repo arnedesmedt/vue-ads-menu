@@ -187,6 +187,7 @@ Place the VueAdsMenuItem components in the default template.
 - `item`: *(type: object, required)* The object that contains all the menu item info.
     - `id`: *(type: string)* The menu item identifier.
     - `name`: *(type: string)* The menu item title.
+    - `tag`: *(type: string, default: `a`)* The html tag of the link (only `a`, `nuxt-link` and `router-link` are allowed).
     - `url`: *(type: string)* The url where the menu item links to.
     - `icon`: *(type: string)* The font-awesome class without the prefix `fa-`.
     Be sure to import the font awesome library. It's a dependency of this library, so you don't need to install it anymore.
