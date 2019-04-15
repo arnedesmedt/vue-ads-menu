@@ -11,9 +11,6 @@ export default {
         tag: {
             type: String,
             default: 'a',
-            validator: (tag) => {
-                return ['a', 'nuxt-link', 'router-link'].includes(tag);
-            },
         },
     },
 
