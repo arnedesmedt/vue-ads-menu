@@ -51,7 +51,7 @@ Drawer as a container for the VueAdsMenu.
                         <vue-ads-menu
                             v-if="item.subitems"
                             :submenu="true"
-                            :width="64"
+                            width="64px"
                             class="bg-blue"
                         >
                             <vue-ads-menu-item
@@ -171,7 +171,7 @@ export default {
 ##### Properties
 
 - `submenu`: *(type: boolean, default: false)* Indicates if the component is a submenu.
-- `width`: *(type: number, default: 64)* A [Tailwind width](https://tailwindcss.com/docs/width) indication of the current menu.
+- `width`: *(type: string, default: '16rem')* The width of the current menu.
 - `minified`: *(type: boolean, default: false)* Indicates if the menu is minified. It will only show the icons of the menu items, when the menu is minified.
 
 ##### Templates

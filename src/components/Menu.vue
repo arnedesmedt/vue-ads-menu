@@ -1,6 +1,7 @@
 <template>
     <ul
         :class="menuClasses"
+        :style="menuStyles"
         class="vue-ads-list-reset vue-ads-menu-transition"
     >
         <slot/>
@@ -21,14 +22,12 @@ export default {
         },
 
         width: {
-            type: Number,
-            required: false,
-            default: 64,
+            type: String,
+            default: '16rem',
         },
 
         minified: {
             type: Boolean,
-            required: false,
             default: false,
         },
     },
@@ -41,9 +40,16 @@ export default {
             };
 
             classes['vue-ads-ml-' + this.parentWidth] = true;
-            classes['vue-ads-w-' + this.width] = true;
 
             return classes;
+        },
+
+        menuStyles () {
+            let styles = {};
+
+            styles['width'] = this.width;
+
+            return styles;
         },
 
         parentWidth () {
