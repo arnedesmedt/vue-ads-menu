@@ -25,17 +25,23 @@ export default {
             case 'nuxt-link': case 'router-link':
                 return 'to';
             }
+
+            return null;
         },
     },
 
     render (createElement) {
+        let attrs = {};
+
+        if (this.urlAttribute) {
+            attrs[this.urlAttribute] = this.url;
+        }
+
         return createElement(
             this.tag,
             {
                 class: 'vue-ads-block vue-ads-flex',
-                attrs: {
-                    [this.urlAttribute]: this.url,
-                },
+                attrs,
             },
             this.$slots.default,
         );
